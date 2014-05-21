@@ -1,7 +1,7 @@
 # Titan
 #
 # VERSION               0.0.1
-# BUILD-USING:        docker build -t titan .
+# BUILD-USING:        docker build -t docker-titan .
 
 FROM      ubuntu
 MAINTAINER Dan Kinsley <dan@watchtello.com>
@@ -31,9 +31,10 @@ RUN chown daemon:daemon /opt/titan-server-0.4.2
 # run memcached as the daemon user
 #USER daemon
 
-ADD rexster-cassandra.xml /opt/titan-server-0.4.2/conf/rexster-cassandra.xml
+ADD run.py /run.py
+RUN chmod u+x /run.py
 # Port for RexPro
 EXPOSE 8182 8183 8184 8185
 
 # Launch titan when launching the container
-CMD ["/opt/titan-server-0.4.2/bin/rexster.sh","-s","-wr","public","-c","/opt/titan-server-0.4.2/conf/rexster-cassandra.xml"]
+CMD ["/run.py"]
