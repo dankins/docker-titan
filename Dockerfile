@@ -8,8 +8,9 @@ FROM      quay.io/queue/base-jvm
 MAINTAINER Dan Kinsley <dan@queuenetwork.com>
 
 # download and install titan server
-RUN curl --silent http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.2.zip --output /titan-server.zip
-RUN unzip -qq /titan-server.zip -d /titan-server
+RUN curl --silent http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.2.zip --output titan-server.zip
+RUN unzip -qq /titan-server.zip
+RUN ln -s /titan-server-0.4.2 /titan-server
 RUN chown daemon:daemon /titan-server
 
 ADD run.py /run.py
