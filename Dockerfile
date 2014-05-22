@@ -2,9 +2,10 @@
 #
 # VERSION               0.0.1
 # BUILD-USING:        docker build -t docker-titan .
+# PUSH-USING:         docker tag docker-titan quay.io/queue/docker-titan  && docker push quay.io/queue/docker-titan
 
 FROM      ubuntu
-MAINTAINER Dan Kinsley <dan@watchtello.com>
+MAINTAINER Dan Kinsley <dan@queuenetwork.com>
 
 # make sure the package repository is up to date
 RUN apt-get update
