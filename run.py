@@ -8,7 +8,7 @@ except ImportError:
     import xml.etree.ElementTree as ET
 
 INTERNAL_IP=socket.gethostbyname(socket.gethostname())
-REXSTER_BASE= "/opt/titan-server-0.4.2"
+REXSTER_BASE= "/titan-server"
 REXSTER_BIN = os.path.join(REXSTER_BASE,'bin/rexster.sh')
 REXSTER_CONFIG_FILE = os.path.join(REXSTER_BASE,'conf/rexster-cassandra.xml')
 REXSTER_BASE_URI = os.environ['REXSTER_BASE_URI']
