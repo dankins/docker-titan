@@ -12,6 +12,7 @@ REXSTER_BASE= "/titan-server"
 REXSTER_BIN = os.path.join(REXSTER_BASE,'bin/rexster.sh')
 REXSTER_CONFIG_FILE = os.path.join(REXSTER_BASE,'conf/rexster-cassandra.xml')
 REXSTER_BASE_URI = os.environ['REXSTER_BASE_URI']
+REXSTER_PORT = os.getenv('REXSTER_PORT','8182')
 
 # These are the Cassandra seed nodes for the cluster
 # ideally this should come from etcd
@@ -21,6 +22,7 @@ SEEDS=os.getenv('SEEDS','172.17.42.1')
 xml = ET.ElementTree(file=REXSTER_CONFIG_FILE)
 
 xml.iterfind('http/base-uri').next().text = REXSTER_BASE_URI
+xml.iterfind('http/server-port').next().text = REXSTER_PORT
 
 # get the properties element from the XML
 graph = xml.iterfind('graphs/graph[0]').next()
