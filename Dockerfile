@@ -2,15 +2,15 @@
 #
 # VERSION               0.0.1
 # BUILD-USING:        docker build -t titan .
-# PUSH-USING:         docker tag titan quay.io/queue/titan  && docker push quay.io/queue/titan
+# PUSH-USING:         docker tag titan surf/titan  && docker push surf/titan
 
-FROM      quay.io/queue/base-jvm
-MAINTAINER Dan Kinsley <dan@queuenetwork.com>
+FROM      surf/base-jvm
+MAINTAINER Dan Kinsley <dan@surfbeta.com>
 
 # download and install titan server
-RUN curl --silent http://s3.thinkaurelius.com/downloads/titan/titan-server-0.4.2.zip --output titan-server.zip
+RUN curl --silent http://s3.thinkaurelius.com/downloads/titan/titan-0.5.0-hadoop2.zip --output titan-server.zip
 RUN unzip -qq /titan-server.zip
-RUN ln -s /titan-server-0.4.2 /titan-server
+RUN ln -s /titan-0.5.0-hadoop2 /titan-server
 RUN chown daemon:daemon /titan-server
 
 ADD run.py /run.py
