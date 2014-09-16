@@ -94,6 +94,8 @@
             <properties>
                 <storage.backend>cassandra</storage.backend>
                 <storage.hostname>172.17.42.1</storage.hostname>
+                <storage.batch-loading>true</storage.batch-loading>
+                <autotype>blueprints<autotype>
             </properties>
             <extensions>
               <allows>
