@@ -16,7 +16,7 @@ REXSTER_PORT = os.getenv('REXSTER_PORT','8182')
 INDEX_BACKEND = os.getenv('INDEX_BACKEND','elasticsearch')
 INDEX_DIRECTORY = os.getenv('INDEX_DIRECTORY','/tmp/searchindex')
 INDEX_HOSTNAME = os.getenv('INDEX_HOSTNAME')
-INDEX_PORT = os.getenv('INDEX_PORT',9200)
+INDEX_PORT = os.getenv('INDEX_PORT','9200')
 
 AUTOTYPE = os.getenv('TITAN_AUTOTYPE','blueprints')
 BATCH = os.getenv('TITAN_BATCH','true')
