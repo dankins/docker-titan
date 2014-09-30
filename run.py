@@ -14,8 +14,9 @@ REXSTER_CONFIG_FILE = os.path.join(REXSTER_BASE,'conf/rexster-cassandra.xml')
 REXSTER_BASE_URI = os.environ['REXSTER_BASE_URI']
 REXSTER_PORT = os.getenv('REXSTER_PORT','8182')
 INDEX_BACKEND = os.getenv('INDEX_BACKEND','elasticsearch')
-INDEX_DIRECTORY = os.getenv('INDEX_BACKEND','/tmp/searchindex')
+INDEX_DIRECTORY = os.getenv('INDEX_DIRECTORY','/tmp/searchindex')
 INDEX_HOSTNAME = os.getenv('INDEX_HOSTNAME')
+INDEX_PORT = os.getenv('INDEX_PORT',9200)
 
 AUTOTYPE = os.getenv('TITAN_AUTOTYPE','blueprints')
 BATCH = os.getenv('TITAN_BATCH','true')
@@ -55,6 +56,7 @@ if INDEX_HOSTNAME is None:
 else:
 	ET.SubElement(props,'index.search.elasticsearch.client-only').text = "true"
 	ET.SubElement(props,'index.search.hostname').text = INDEX_HOSTNAME
+	ET.SubElement(props,'index.search.port').text = INDEX_PORT
 	
 graph.append(props)
 
